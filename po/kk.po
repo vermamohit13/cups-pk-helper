@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2014-2015
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2014-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: cups-pk-helper\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-03-22 20:04+0100\n"
-"PO-Revision-Date: 2015-03-27 09:15+0000\n"
+"PO-Revision-Date: 2017-09-19 21:52+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh (http://www.transifex.com/freedesktop/cups-pk-helper/language/kk/)\n"
 "MIME-Version: 1.0\n"
@@ -104,8 +104,8 @@ msgstr "Тапсырманы қайта іске қосу/үзу/түзету"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:21
 msgid "Restart/Cancel/Edit a job owned by another user"
-msgstr ""
+msgstr "Басқа пайдаланушы тапсырмасын қайта іске қосу/тоқтату/түзету"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:22
 msgid "Set a printer as default printer"
-msgstr ""
+msgstr "Принтерді негізгі принтер ретінде орнату"

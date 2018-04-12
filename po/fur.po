@@ -3,111 +3,109 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Martijn Dekker <mcdutchie@hotmail.com>, 2015
-# Nik Kalach <nikka@fedoraproject.org>, 2012
-# Nik Kalach <nik.kalach@inbox.ru>, 2012
+# Fabio Tomat <f.t.public@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: cups-pk-helper\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-03-22 20:04+0100\n"
-"PO-Revision-Date: 2017-09-19 14:10+0000\n"
-"Last-Translator: Martijn Dekker <mcdutchie@hotmail.com>\n"
-"Language-Team: Interlingua (http://www.transifex.com/freedesktop/cups-pk-helper/language/ia/)\n"
+"PO-Revision-Date: 2017-11-26 17:09+0000\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"Language-Team: Friulian (http://www.transifex.com/freedesktop/cups-pk-helper/language/fur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ia\n"
+"Language: fur\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:1
 msgid "Add/Remove/Edit a class"
-msgstr "Adder/Remover/Modificar un classe"
+msgstr "Zonte/Gjave/Modifiche une classe"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:2
 msgid "Add/Remove/Edit a local printer"
-msgstr "Adder/Remover/Modificar un impressor local"
+msgstr "Zonte/Gjave/Modifiche une stampante locâl"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:3
 msgid "Add/Remove/Edit a printer"
-msgstr "Adder/Remover/Modificar un impressor"
+msgstr "Zonte/Gjave/Modifiche une stampante"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:4
 msgid "Add/Remove/Edit a remote printer"
-msgstr "Adder/Remover/Modificar un impressor remote"
+msgstr "Zonte/Gjave/Modifiche une stampante rimote"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:5
 msgid "Change printer settings"
-msgstr "Cambiar parametros de impressor"
+msgstr "Cambie lis impostazions de stampante"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:6
 msgid "Enable/Disable a printer"
-msgstr "Activar/disactivar un impressor"
+msgstr "Abilite/Disabilite une stampante"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:7
 msgid "Get list of available devices"
-msgstr "Obtener un lista de dispositivos disponibile"
+msgstr "Oten la liste dai dispositîfs disponibii"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:8
 msgid "Get/Set server settings"
-msgstr "Obtener/Modificar parametros de servitor"
+msgstr "Oten/Stabilìs lis impostazions dal servidôr"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:9
 msgid "Privileges are required to add/remove/edit a class."
-msgstr "Privilegios es necessari pro adder/eliminar/modificar un classe."
+msgstr "I privileçs a son necessaris par zontâ/gjavâ/modificâ une classe."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:10
 msgid "Privileges are required to add/remove/edit a local printer."
-msgstr "Privilegios es necessari pro adder/eliminar/modificar un impressor local."
+msgstr "I privileçs a son necessaris par zontâ/gjavâ/modificâ une stampante locâl."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:11
 msgid "Privileges are required to add/remove/edit a printer."
-msgstr "Privilegios es necessari pro adder/eliminar/modificar un impressor."
+msgstr "I privileçs a son necessaris par zontâ/gjavâ/modificâ une stampante."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:12
 msgid "Privileges are required to add/remove/edit a remote printer."
-msgstr "Privilegios es necessari pro adder/eliminar/modificar un impressor remote."
+msgstr "I privileçs a son necessaris par zontâ/gjavâ/modificâ une stampante rimote."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:13
 msgid ""
 "Privileges are required to change printer settings. This should only be "
 "needed from the Printers system settings panel."
-msgstr "Privilegios es necessari pro cambiar le parametros de un impressor. Isto deberea esser necessari solmente pro le pannello de configuration de systema \"Impressores\"."
+msgstr "I privileçs a son necessaris par cambiâ lis impostazions de stampante. Chest al varès di coventâ dome dal panel des impostazions di sisteme des Stampantis."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:14
 msgid "Privileges are required to enable/disable a printer, or a class."
-msgstr "Privilegios es necessari pro activar/disactivar un impressor o un classe."
+msgstr "I privileçs a son necessaris par abilitâ/disabilitâ une stampante o une classe."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:15
 msgid "Privileges are required to get list of available devices."
-msgstr "Privilegios es necessari pro obtener un lista de dispositivos disponibile."
+msgstr "I privileçs a son necessaris par otignî la liste dai dispositîfs disponibii."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:16
 msgid "Privileges are required to get/set server settings."
-msgstr "Privilegios es necessari pro obtener/modificar parametros de servitor."
+msgstr "I privileçs a son necessaris par otignî/stabilî lis impostazions dal servidôr."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:17
 msgid ""
 "Privileges are required to restart/cancel/edit a job owned by another user."
-msgstr "Privilegios es necessari pro reinitiar/cancellar/modificar un travalio possedite per un altere usator."
+msgstr "I privileçs a son necessaris par tornâ a tacâ/anulâ/modificâ un lavôr di proprietât di un altri utent."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:18
 msgid "Privileges are required to restart/cancel/edit a job."
-msgstr "Privilegios es necessari pro reinitiar/cancellar/modificar un travalio."
+msgstr "I privileçs a son necessaris par tornâ a tacâ/anulâ/modificâ un lavôr."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:19
 msgid ""
 "Privileges are required to set a printer, or a class, as default printer."
-msgstr "Privilegios es necessari pro assignar un impressor o classe como predefinite."
+msgstr "I privileçs a son necessaris par stabilî une stampante o une classe come stampante predefinide."
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:20
 msgid "Restart/Cancel/Edit a job"
-msgstr "Reinitiar/cancellar/modificar un travalio"
+msgstr "Torne tache/Anule/Modifiche un lavôr"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:21
 msgid "Restart/Cancel/Edit a job owned by another user"
-msgstr "Reinitiar/cancellar/modificar un travalio possedite per un altere usator"
+msgstr "Torne tache/Anule/Modifiche un lavôr di proprietât di un altri utent"
 
 #: ../src/org.opensuse.cupspkhelper.mechanism.policy.in.h:22
 msgid "Set a printer as default printer"
-msgstr "Assignar un imprimitor como predefinite"
+msgstr "Stabilìs une stampante come stampante predefinide"

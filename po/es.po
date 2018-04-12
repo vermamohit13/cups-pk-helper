@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Adolfo Jayme <fitoschido@gmail.com>, 2013
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012
+# Adolfo Jayme-Barrientos, 2013
+# Daniel Mustieles <inactive+leo@transifex.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: cups-pk-helper\n"
-"Report-Msgid-Bugs-To: https://bugs.freedesktop.org/enter_bug.cgi?product=cups-pk-helper\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-03-22 20:04+0100\n"
-"PO-Revision-Date: 2013-05-14 14:11+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/freedesktop/language/es/)\n"
+"PO-Revision-Date: 2017-09-19 10:48+0000\n"
+"Last-Translator: Adolfo Jayme-Barrientos\n"
+"Language-Team: Spanish (http://www.transifex.com/freedesktop/cups-pk-helper/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
