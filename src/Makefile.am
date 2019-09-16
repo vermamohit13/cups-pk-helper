@@ -57,7 +57,7 @@ test_cups_pk_LDADD =	\
 	$(TEST_LIBS)	\
 	$(CUPS_LIBS)
 
-dbus_confdir = $(sysconfdir)/dbus-1/system.d
+dbus_confdir = $(datadir)/dbus-1/system.d
 dbus_conf_DATA = org.opensuse.CupsPkHelper.Mechanism.conf
 
 dbus_servicesdir = $(datadir)/dbus-1/system-services
