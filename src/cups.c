@@ -35,8 +35,6 @@
 #include <sys/stat.h>
 #include <sys/ioctl.h>
 
-#include <config.h>
-
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <glib/gi18n.h>
