@@ -47,44 +47,6 @@
 
 #include "cups.h"
 
-#if ((CUPS_VERSION_MAJOR < 1) || (CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6))
-#define ippGetCount(attr)     attr->num_values
-#define ippGetGroupTag(attr)  attr->group_tag
-#define ippGetValueTag(attr)  attr->value_tag
-#define ippGetName(attr)      attr->name
-#define ippGetStatusCode(ipp) ipp->request.status.status_code
-#define ippGetString(attr, element, language) attr->values[element].string.text
-
-static ipp_attribute_t *
-ippFirstAttribute(ipp_t *ipp)
-{
-  if (!ipp)
-    return NULL;
-
-  return (ipp->current = ipp->attrs);
-}
-
-static ipp_attribute_t *
-ippNextAttribute(ipp_t *ipp)
-{
-  if (!ipp || !ipp->current)
-    return NULL;
-
-  return (ipp->current = ipp->current->next);
-}
-
-static int
-ippSetString(ipp_t            *ipp,
-             ipp_attribute_t **attr,
-             int               element,
-             const char       *strvalue)
-{
-  (*attr)->values[element].string.text = (char *) strvalue;
-
-  return 1;
-}
-#endif
-
 /* This is 0.1 second */
 #define RECONNECT_DELAY        100000
 /* We try to reconnect during 3 seconds. It's still a fairly long time even for
@@ -1530,16 +1492,15 @@ _cph_cups_get_devices_cb (const char *device_class,
         data->iter++;
 }
 
-#if (CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 4) || CUPS_VERSION_MAJOR > 1
 static gboolean
-_cph_cups_devices_get_14 (CphCups           *cups,
-                          int                timeout,
-                          int                limit,
-                          const char *const *include_schemes,
-                          const char *const *exclude_schemes,
-                          int                len_include,
-                          int                len_exclude,
-                          CphCupsGetDevices *data)
+_cph_cups_devices_get (CphCups           *cups,
+                       int                timeout,
+                       int                limit,
+                       const char *const *include_schemes,
+                       const char *const *exclude_schemes,
+                       int                len_include,
+                       int                len_exclude,
+                       CphCupsGetDevices *data)
 {
         ipp_status_t  retval;
         int           timeout_param = CUPS_TIMEOUT_DEFAULT;
@@ -1577,119 +1538,6 @@ _cph_cups_devices_get_14 (CphCups           *cups,
 
         return TRUE;
 }
-#else
-static gboolean
-_cph_cups_devices_get_old (CphCups           *cups,
-                           int                timeout,
-                           int                limit,
-                           const char *const *include_schemes,
-                           const char *const *exclude_schemes,
-                           int                len_include,
-                           int                len_exclude,
-                           CphCupsGetDevices *data)
-{
-        ipp_t           *request;
-        const char      *resource_char;
-        ipp_t           *reply;
-        ipp_attribute_t *attr;
-        const char      *device_class;
-        const char      *device_id;
-        const char      *device_info;
-        const char      *device_location;
-        const char      *device_make_and_model;
-        const char      *device_uri;
-
-        request = ippNewRequest (CUPS_GET_DEVICES);
-
-        if (timeout > 0)
-                ippAddInteger (request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                               "timeout", timeout);
-        if (limit > 0)
-                ippAddInteger (request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                               "limit", limit);
-
-        if (include_schemes && len_include > 0) {
-                int i;
-
-                attr = ippAddStrings (request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                                      "include-schemes", len_include, NULL, NULL);
-                for (i = 0; i < len_include; i++)
-                        ippSetString (request, &attr, i, g_strdup (include_schemes[i]));
-        }
-
-        if (exclude_schemes && len_exclude > 0) {
-                int i;
-
-                attr = ippAddStrings (request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                                      "exclude-schemes", len_exclude, NULL, NULL);
-                for (i = 0; i < len_exclude; i++)
-                        ippSetString (request, &attr, i, g_strdup (exclude_schemes[i]));
-        }
-
-        resource_char = _cph_cups_get_resource (CPH_RESOURCE_ROOT);
-        reply = cupsDoRequest (cups->priv->connection,
-                               request, resource_char);
-
-        if (!_cph_cups_is_reply_ok (cups, reply, TRUE))
-                return FALSE;
-
-        for (attr = ippFirstAttribute (reply); attr; attr = ippNextAttribute (reply)) {
-                while (attr && ippGetGroupTag (attr) != IPP_TAG_PRINTER)
-                        attr = ippNextAttribute (reply);
-
-                if (attr == NULL)
-                        break;
-
-                device_class          = NULL;
-                device_id             = NULL;
-                device_info           = NULL;
-                device_location       = NULL;
-                device_make_and_model = NULL;
-                device_uri            = NULL;
-
-                while (attr && ippGetGroupTag (attr) == IPP_TAG_PRINTER) {
-                        if (ippGetName (attr) == NULL)
-                                /* nothing, just skip */;
-                        else if (strcmp (ippGetName (attr), "device-class") == 0 &&
-                                 ippGetValueTag (attr) == IPP_TAG_KEYWORD)
-                                device_class = g_strdup (ippGetString (attr, 0, NULL));
-                        else if (strcmp (ippGetName (attr), "device-id") == 0 &&
-                                 ippGetValueTag (attr) == IPP_TAG_TEXT)
-                                device_id = g_strdup (ippGetString (attr, 0, NULL));
-                        else if (strcmp (ippGetName (attr), "device-info") == 0 &&
-                                 ippGetValueTag (attr) == IPP_TAG_TEXT)
-                                device_info = g_strdup (ippGetString (attr, 0, NULL));
-                        else if (strcmp (ippGetName (attr), "device-location") == 0 &&
-                                 ippGetValueTag (attr) == IPP_TAG_TEXT)
-                                device_location = g_strdup (ippGetString (attr, 0, NULL));
-                        else if (strcmp (ippGetName (attr), "device-make-and-model") == 0 &&
-                                 ippGetValueTag (attr) == IPP_TAG_TEXT)
-                                device_make_and_model = g_strdup (ippGetString (attr, 0, NULL));
-                        else if (strcmp (ippGetName (attr), "device-uri") == 0 &&
-                                 ippGetValueTag (attr) == IPP_TAG_URI)
-                                device_uri = g_strdup (ippGetString (attr, 0, NULL));
-
-                        attr = ippNextAttribute (reply);
-                }
-
-                if (device_uri)
-                        _cph_cups_get_devices_cb (device_class,
-                                                  device_id,
-                                                  device_info,
-                                                  device_make_and_model,
-                                                  device_uri,
-                                                  device_location,
-                                                  data);
-
-                if (attr == NULL)
-                        break;
-        }
-
-        ippDelete (reply);
-
-        return TRUE;
-}
-#endif
 
 gboolean
 cph_cups_devices_get (CphCups            *cups,
@@ -1734,17 +1582,10 @@ cph_cups_devices_get (CphCups            *cups,
         if (limit > 0)
                 data.limit = limit;
 
-#if (CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 4) || CUPS_VERSION_MAJOR > 1
-        retval = _cph_cups_devices_get_14 (cups, timeout, limit,
-                                           include_schemes, exclude_schemes,
-                                           len_include, len_exclude,
-                                           &data);
-#else
-        retval = _cph_cups_devices_get_old (cups, timeout, limit,
-                                            include_schemes, exclude_schemes,
-                                            len_include, len_exclude,
-                                            &data);
-#endif
+        retval = _cph_cups_devices_get (cups, timeout, limit,
+                                        include_schemes, exclude_schemes,
+                                        len_include, len_exclude,
+                                        &data);
 
         if (retval)
                 *devices = g_variant_builder_end (data.builder);
@@ -2893,10 +2734,8 @@ cph_cups_job_cancel (CphCups    *cups,
         if (user_name != NULL)
                 _cph_cups_add_requesting_user_name (request, user_name);
 
-#if (CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 4) || CUPS_VERSION_MAJOR > 1
         if (purge_job)
                 ippAddBoolean (request, IPP_TAG_OPERATION, "purge-job", 1);
-#endif
 
         return _cph_cups_send_request (cups, request, CPH_RESOURCE_JOBS);
 }
