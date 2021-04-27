@@ -145,8 +145,6 @@ main (int argc, char **argv)
         cph_main data;
         guint    owner_id;
 
-        g_type_init ();
-
         memset (&data, 0, sizeof (data));
 
         data.mechanism = cph_mechanism_new ();

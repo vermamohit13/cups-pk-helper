@@ -77,8 +77,6 @@ main (int argc, char **argv)
         gboolean           ret;
         GError            *error;
 
-        g_type_init ();
-
         error = NULL;
         proxy = cph_iface_mechanism_proxy_new_for_bus_sync (
                                 G_BUS_TYPE_SYSTEM,

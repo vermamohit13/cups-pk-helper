@@ -31,8 +31,6 @@ main (int argc, char **argv)
 {
         CphCups *cups;
 
-        g_type_init ();
-
         cups = cph_cups_new ();
 
         if (cups == NULL)
